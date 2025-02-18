@@ -1,0 +1,21 @@
+One solution is to avoid using `@apply` for styles that you anticipate needing to override. Instead, explicitly define the styles.
+
+Another solution, though generally discouraged for maintainability, is to use the `!important` flag on the overriding styles. This ensures the specific styling takes precedence.
+
+```css
+/* Styles.css */
+.btn {
+  background-color: blue;
+  color: white;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.btn-modified {
+  background-color: red !important;
+}
+```
+
+The best approach, however, is to refactor your CSS to use more specific selectors or avoid the need for overrides altogether.
+
+This improved solution provides more maintainable and predictable styling, eliminating the need for workarounds like `!important`.
