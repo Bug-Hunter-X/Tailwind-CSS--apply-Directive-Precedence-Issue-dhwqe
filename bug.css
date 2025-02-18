@@ -1,0 +1,15 @@
+This error occurs when using Tailwind CSS with a framework like Next.js or Nuxt.js.  The problem stems from the way Tailwind generates its CSS, particularly when using `@apply` directives.  If you have a class like `.btn` that uses `@apply` to apply multiple other classes, and then you try to overwrite those classes on a specific instance, the styles from `@apply` can take precedence.
+
+```javascript
+// Styles.css
+.btn {
+  @apply bg-blue-500 text-white p-2 rounded;
+}
+
+.btn-modified {
+  @apply bg-red-500;
+}
+```
+
+In this case, the `.btn-modified` will likely still have the `text-white` and `rounded` styles applied from the `.btn` class, overriding your `bg-red-500` change, which may not be what you expect.
+
